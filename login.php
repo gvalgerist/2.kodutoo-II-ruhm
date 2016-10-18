@@ -27,6 +27,8 @@
 	$signupAge = "";
 	$signupAgeError= "";
 	$signupCountry = "";
+	$signupCity = "";
+	$signupShoesize = "";
 	
 	if(isset($_POST["signupemail"])){
 		
@@ -50,23 +52,43 @@
 			
 		}
 		
-		if(isset($_POST["signupAge"])) {
-			
-			$signupAge = $_POST["signupAge"];
-			
-		} else {
+		if(empty($_POST["signupAge"])) {
 			
 			$signupAgeError= "See vali on kohustuslik";
 			
+		} else {
+			
+			$signupAge = $_POST["signupAge"];
+			
 		}
 		
-		if(isset($_POST["signupCountry"])) {
+		if(empty($_POST["signupCountry"])) {
 			
-			$signupCountry= $_POST["signupCountry"];
+			$signupCountry = "-";
 			
 		} else {
 			
-			$signupCountry = "-";
+			$signupCountry= $_POST["signupCountry"];
+			
+		}
+		
+		if(empty($_POST["signupCity"])) {
+			
+			$signupCity = "-";
+			
+		} else {
+			
+			$signupCity= $_POST["signupCity"];
+			
+		}
+		
+		if(empty($_POST["signupShoesize"])) {
+			
+			$signupShoesize = "-";
+			
+		} else {
+			
+			$signupShoesize= $_POST["signupShoesize"];
 			
 		}
 	}
@@ -128,6 +150,8 @@
 		echo "gender: ".$signupGender."<br>";
 		echo "age: ".$signupAge."<br>";
 		echo "country: ".$signupCountry."<br>";
+		echo "city: ".$signupCity."<br>";
+		echo "shoesize: ".$signupShoesize."<br>";
 		
 		$password = hash("sha512", $_POST["signuppassword"]);
 		
@@ -135,7 +159,7 @@
 		
 		//echo $serverUsername;
 		
-		signUp($signupemail, $password, $signupGender, $signupAge, $signupCountry);
+		signUp($signupemail, $password, $signupGender, $signupAge, $signupCountry, $signupCity, $signupShoesize);
 		
 	}
 	
@@ -243,11 +267,11 @@
 		<br><br>
 		
 		<b><label>Linn:</label></b><br>
-		<input name="city" type="text">
+		<input name="signupCity" type="text">
 		<br><br>
 		
 		<b><label>Jalanumber (EUR):</label></b><br>
-		<input name="shoesize" type="float">
+		<input name="signupShoesize" type="float">
 		<br><br>
 		
 		<input name="spam" type="checkbox"> Soovin saada teateid oma meilile

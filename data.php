@@ -26,21 +26,21 @@
 		!empty($_POST["plate"]) && !empty($_POST["color"])
 		) {
 		
-		savecar($cleanInput($_POST["plate"]), $_POST["color"]);
+		savecar(cleanInput($_POST["plate"]), cleanInput($_POST["color"]));
 		
 		
 	}
 
 	$cardata=getallcars();
-	echo"<pre>";
-	var_dump($cardata);
-	echo"</pre>";
+	//echo"<pre>";
+	//var_dump($cardata);
+	//echo"</pre>";
 	
 ?>
 <h1>Data</h1>
 
 <p>
-	Tere tulemast <?=$_SESSION["userEmail"];?>
+	Tere tulemast <a href="user.php"><?=$_SESSION["userEmail"];?>!</a>
 	<a href="?logout=1">Logi valja</a>
 
 </p>
@@ -90,5 +90,25 @@
 
 
 ?>
+
+<h2>Sneakers</h2>
+
+	<form method="POST">
+
+		<label><b>Create a post</b></label><br><br>
+	
+		<label>Title</label><br>
+		<input name="title" type="text" placeholder="Title"><br><br>
+	
+		<label>Description</label><br>
+		<textarea rows="5" cols="60" name="description" type="text" placeholder="test"></textarea>
+		
+		
+		<br><br>
+		<input type="submit" value="Save & Post">
+
+
+
+	</form>
 
 
