@@ -16,7 +16,6 @@
 	$signinPasswordError= "";
 	$signinemail= "";
 	
-	
 	$signupEmailError= "";
 	$signupPasswordError= "";
 	$reenterpasswordError= "";
@@ -48,7 +47,7 @@
 			
 		} else {
 			
-			$signupGenderError= "See valik on kohustuslik";
+			$signupGenderError= "See vali on kohustuslik";
 			
 		}
 		
@@ -208,14 +207,14 @@
 
 	<h1>Logi sisse</h1>
 	<form method="POST">
+	
 		<p style="color:red;"><?=$error;?></p>
-		<input name="loginemail" placeholder="Kasutaja" type="text" value="<?=$signinemail;?>"> <?php echo $signinEmailError; ?>
+		<input name="loginemail" placeholder="Kasutaja" type="text" value="<?=$signinemail;?>"> <text style="color:red;"><?php echo $signinEmailError; ?></text>
 		<br><br>
 	
-		<input name="loginpassword" placeholder="Parool" type="password"> <?php echo $signinPasswordError; ?>
+		<input name="loginpassword" placeholder="Parool" type="password"> <text style="color:red;"><?php echo $signinPasswordError; ?></text>
 		<br><br>
 			
-	
 		<input type="submit" value="Logi Sisse">
 		
 	</form>
@@ -226,18 +225,18 @@
 	
 		<br>
 		<b><label>*E-mail:</label></b><br>
-		<input name="signupemail" placeholder="example@mail.com" type="text" value="<?=$signupemail;?>"> <?php echo $signupEmailError; ?>
+		<input name="signupemail" placeholder="example@mail.com" type="text" value="<?=$signupemail;?>"> <text style="color:red;"><?php echo $signupEmailError; ?></text>
 		<br><br>
 	
 		<b><label>*Parool:</label></b><br>
-		<input name="signuppassword" placeholder="********" type="password"> <?php echo $signupPasswordError; ?>
+		<input name="signuppassword" placeholder="********" type="password"> <text style="color:red;"><?php echo $signupPasswordError; ?></text>
 		<br><br>
 		
 		<b><label>*Sisesta parool uuesti:</label></b><br>
-		<input name="reenterpassword" placeholder="********" type="password"> <?php echo $reenterpasswordError; ?>
+		<input name="reenterpassword" placeholder="********" type="password"> <text style="color:red;"><?php echo $reenterpasswordError; ?></text>
 		<br><br>
 		
-		<b><label>*Sugu:</label></b><?php echo $signupGenderError; ?><br><br>
+		<b><label>*Sugu:</label></b> <text style="color:red;"><?php echo $signupGenderError; ?></text><br><br>
 		<?php if($signupGender == "male") { ?>
 			<input name="signupGender" type="radio" value="male" checked> Male<br>
 		<?php }else { ?>
@@ -258,7 +257,7 @@
 		
 		<br>
 		
-		<b><label>*Vanus:</label></b><?php echo $signupAgeError; ?><br>
+		<b><label>*Vanus:</label></b> <text style="color:red;"><?php echo $signupAgeError; ?></text><br>
 		<input name="signupAge" type="integer">
 		<br><br>
 		

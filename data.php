@@ -37,20 +37,21 @@
 	//echo"</pre>";
 	
 ?>
-<h1>Data</h1>
+<h1>Oled sisse logitud (DATA)</h1>
 
 <p>
-	Tere tulemast <a href="user.php"><?=$_SESSION["userEmail"];?>!</a>
-	<a href="?logout=1">Logi valja</a>
+	Tere tulemast <a href="user.php"><?=$_SESSION["userEmail"];?></a>!<br>
+	<br><a href="profile.php">Minu profiil</a>
+	<br><a href="?logout=1">Logi valja</a>
 
 </p>
 
 	<form method="POST">
 
-		<label>Salvesta auto</label><br><br>
+		<h2>Salvesta auto</h2>
 	
 		<label>Auto number</label><br>
-		<input name="plate" type="text" placeholder="123 ABC"><br><br>
+		<input name="plate" type="text" placeholder="123ABC"><br><br>
 	
 		<label>Auto varv</label><br>
 		<input name="color" type="color">
@@ -101,7 +102,7 @@
 		<input name="title" type="text" placeholder="Title"><br><br>
 	
 		<label>Description</label><br>
-		<textarea rows="5" cols="60" name="description" type="text" placeholder="test"></textarea>
+		<textarea rows="6" cols="80" name="description" type="text" placeholder="test"></textarea>
 		
 		
 		<br><br>
