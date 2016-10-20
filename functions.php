@@ -292,7 +292,188 @@
 		
  	}
 	
+	function profileEmail() {
+		
+		$error="";
+		
+		$database = "if16_georg";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+		
+		$stmt = $mysqli->prepare("SELECT email FROM proov1 WHERE id=?");
 	
+		echo $mysqli->error;
+		
+		//asendan kysimargi
+		$stmt->bind_param("i", $_SESSION["userId"]);
+		
+		//maaran vaartused muutujatesse
+		$stmt->bind_result($profileEmail);
+		
+		$stmt->execute();
+		
+		if($stmt->fetch()){
+			
+			echo $profileEmail;
+			
+		}
+
+	}
+	
+	function profileGender() {
+		
+		$error="";
+		
+		$database = "if16_georg";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+		
+		$stmt = $mysqli->prepare("SELECT gender FROM proov1 WHERE id=?");
+	
+		echo $mysqli->error;
+		
+		//asendan kysimargi
+		$stmt->bind_param("i", $_SESSION["userId"]);
+		
+		//maaran vaartused muutujatesse
+		$stmt->bind_result($profileGender);
+		
+		$stmt->execute();
+		
+		if($stmt->fetch()){
+			
+			echo $profileGender;
+			
+		}
+	}
+	
+	function profileAge() {
+		
+		$error="";
+		
+		$database = "if16_georg";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+		
+		$stmt = $mysqli->prepare("SELECT age FROM proov1 WHERE id=?");
+	
+		echo $mysqli->error;
+		
+		//asendan kysimargi
+		$stmt->bind_param("i", $_SESSION["userId"]);
+		
+		//maaran vaartused muutujatesse
+		$stmt->bind_result($profileAge);
+		
+		$stmt->execute();
+		
+		if($stmt->fetch()){
+			
+			echo $profileAge;
+			
+		}
+	}
+	
+	function profileCountry() {
+		
+		$error="";
+		
+		$database = "if16_georg";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+		
+		$stmt = $mysqli->prepare("SELECT country FROM proov1 WHERE id=?");
+	
+		echo $mysqli->error;
+		
+		//asendan kysimargi
+		$stmt->bind_param("i", $_SESSION["userId"]);
+		
+		//maaran vaartused muutujatesse
+		$stmt->bind_result($profileCountry);
+		
+		$stmt->execute();
+		
+		if($stmt->fetch()){
+			
+			echo $profileCountry;
+			
+		}
+	}
+	
+	function profileCity() {
+		
+		$error="";
+		
+		$database = "if16_georg";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+		
+		$stmt = $mysqli->prepare("SELECT city FROM proov1 WHERE id=?");
+	
+		echo $mysqli->error;
+		
+		//asendan kysimargi
+		$stmt->bind_param("i", $_SESSION["userId"]);
+		
+		//maaran vaartused muutujatesse
+		$stmt->bind_result($profileCity);
+		
+		$stmt->execute();
+		
+		if($stmt->fetch()){
+			
+			echo $profileCity;
+			
+		}
+	}
+	
+	function profileShoesize() {
+		
+		$error="";
+		
+		$database = "if16_georg";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+		
+		$stmt = $mysqli->prepare("SELECT shoesize FROM proov1 WHERE id=?");
+	
+		echo $mysqli->error;
+		
+		//asendan kysimargi
+		$stmt->bind_param("i", $_SESSION["userId"]);
+		
+		//maaran vaartused muutujatesse
+		$stmt->bind_result($profileShoesize);
+		
+		$stmt->execute();
+		
+		if($stmt->fetch()){
+			
+			echo $profileShoesize;
+			
+		}
+	}
+	
+	function profileCreated() {
+		
+		$error="";
+		
+		$database = "if16_georg";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+		
+		$stmt = $mysqli->prepare("SELECT created FROM proov1 WHERE id=?");
+	
+		echo $mysqli->error;
+		
+		//asendan kysimargi
+		$stmt->bind_param("i", $_SESSION["userId"]);
+		
+		//maaran vaartused muutujatesse
+		$stmt->bind_result($profileCreated);
+		
+		$stmt->execute();
+		
+		if($stmt->fetch()){
+			
+			echo $profileCreated;
+			
+		}
+	}
 	
 	
 ?>
