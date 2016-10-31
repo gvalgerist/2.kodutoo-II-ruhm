@@ -22,65 +22,66 @@
 	}
 
 	
-	if(isset($_POST["plate"]) && isset($_POST["color"]) &&
-		!empty($_POST["plate"]) && !empty($_POST["color"])
+	if(isset($_POST["contactemail"]) && isset($_POST["description"]) && isset($_POST["price"]) &&
+		!empty($_POST["contactemail"]) && !empty($_POST["description"]) && !empty($_POST["price"])
 		) {
 		
-		savecar(cleanInput($_POST["plate"]), cleanInput($_POST["color"]));
+		savesneaker(cleanInput($_POST["contactemail"]), cleanInput($_POST["description"]), cleanInput($_POST["price"]));
 		
 		
 	}
-
-	$cardata=getallcars();
-	//echo"<pre>";
-	//var_dump($cardata);
-	//echo"</pre>";
 	
+	$sneakerdata=getallsneakers();
 ?>
-<h1>Oled sisse logitud (DATA)</h1>
 
+<h1>
+	Welcome<a href="user.php"> <?=$_SESSION["userEmail"];?></a>!
+</h1>
 <p>
-	Tere tulemast <a href="user.php"><?=$_SESSION["userEmail"];?></a>!<br>
-	<br><a href="profile.php">Minu profiil</a>
+	<a href="profile.php">Minu profiil</a>
 	<br><a href="?logout=1">Logi valja</a>
 
 </p>
 
+<h2>Sell Sneakers</h2>
+
 	<form method="POST">
 
-		<h2>Salvesta auto</h2>
+		<label><b>Create a post</b></label><br><br>
 	
-		<label>Auto number</label><br>
-		<input name="plate" type="text" placeholder="123ABC"><br><br>
-	
-		<label>Auto varv</label><br>
-		<input name="color" type="color">
-
+		<label>Description</label><br>
+		<textarea rows="2" cols="40" name="description" type="text" maxlength="50" placeholder="ex. Air Jordan X Retro 'OVO', size 43"></textarea><br><br>
+		
+		<label>Price ($)</label><br>
+		<input name="price" type="integer" placeholder="ex. 490"><br><br>
+		
+		<label>Contact E-Mail</label><br>
+		<input name="contactemail" type="text" placeholder="contact@me.com">
+		
 		<br><br>
-		<input type="submit" value="Salvesta">
+		<input type="submit" value="Save & Post">
 
 
 
 	</form>
-
-<h2>Autod</h2>
+	
+<h2>Market</h2>
 <?php
 
 	$html = "<table>";
 	
 	$html .= "<tr>";
-		$html .= "<th>id</th>";
-		$html .= "<th>plate</th>";
-		$html .= "<th>color</th>";
+		$html .= "<th>Contact E-Mail</th>";
+		$html .= "<th>Description</th>";
+		$html .= "<th>Price ($)</th>";
 	$html .= "</tr>";
 	
-	foreach($cardata as $c) {
-		//echo $c->plate."<br>";
+	foreach($sneakerdata as $c) {
 		
 		$html .= "<tr>";
-			$html .= "<td>".$c->id."</td>";
-			$html .= "<td>".$c->plate."</td>";
-			$html .= "<td style='color:".$c->color."'>".$c->color."</td>";
+			$html .= "<td>".$c->contactemail."</td>";
+			$html .= "<td>".$c->description."</td>";
+			$html .= "<td>".$c->price."</td>";
 		$html .= "</tr>";
 		
 	}
@@ -91,25 +92,3 @@
 
 
 ?>
-
-<h2>Sneakers</h2>
-
-	<form method="POST">
-
-		<label><b>Create a post</b></label><br><br>
-	
-		<label>Title</label><br>
-		<input name="title" type="text" placeholder="Title"><br><br>
-	
-		<label>Description</label><br>
-		<textarea rows="6" cols="80" name="description" type="text" placeholder="test"></textarea>
-		
-		
-		<br><br>
-		<input type="submit" value="Save & Post">
-
-
-
-	</form>
-
-

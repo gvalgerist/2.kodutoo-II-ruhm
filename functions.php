@@ -88,17 +88,17 @@
 		return $error;
 	
 	}
-
-	function savecar ($plate, $color) {
+	
+	function savesneaker ($contactemail, $description, $price) {
 		
 		$database = "if16_georg";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 		
-		$stmt = $mysqli->prepare("INSERT INTO cars_and_colors(plate, color) VALUES(?, ?)");
+		$stmt = $mysqli->prepare("INSERT INTO sneakers(contactemail, description, price) VALUES(?, ?, ?)");
 	
 		echo $mysqli->error;
 		
-		$stmt->bind_param("ss", $plate, $color);
+		$stmt->bind_param("sss", $contactemail, $description, $price);
 		
 		if($stmt->execute()) {
 			
@@ -114,31 +114,30 @@
 		
 	}
 	
-	function getallcars() {
+	function getallsneakers() {
 		
 		$database = "if16_georg";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 		
 		$stmt=$mysqli->prepare("
-			SELECT id, plate, color
-			FROM cars_and_colors
+			SELECT contactemail, description, price
+			FROM sneakers
 		");
 		
-		$stmt->bind_result($id, $plate, $color);
+		$stmt->bind_result($contactemail, $description, $price);
 		$stmt->execute();
 		
 		$result=array();
 		
 		while($stmt->fetch()) {
 			
-			$car= new stdclass();
+			$sneaker= new stdclass();
 			
-			$car->id=$id;
-			$car->plate=$plate;
-			$car->color=$color;
+			$sneaker->contactemail=$contactemail;
+			$sneaker->description=$description;
+			$sneaker->price=$price;
 			
-			//echo $plate."<br>";
-			array_push($result, $car);
+			array_push($result, $sneaker);
 		}
 		
 		$stmt->close();
@@ -291,7 +290,10 @@
 		}
 		
  	}
-	
+?>
+
+<?php	
+
 	function profileEmail() {
 		
 		$error="";
@@ -474,6 +476,7 @@
 			
 		}
 	}
-	
+
 	
 ?>
+

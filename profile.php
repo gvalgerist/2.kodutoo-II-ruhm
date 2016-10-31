@@ -14,12 +14,15 @@
 	//echo $_SESSION["userId"];
 	//profileInfo();
 	
-	
+	//andmete muutmine
+	//parooli vahetus
+	//kui unustad parooli
 	
 ?>
 
 <h1>Minu Profiil</h1><h2><a href="data.php">Tagasi</a></h2><br><br>
-<h2>	Email: <?php profileEmail(); ?><br>
+<h2>	
+	Email: <?php profileEmail(); ?><br>
 	Gender: <?php profileGender(); ?><br>
 	Age: <?php profileAge(); ?><br>
 	Country: <?php profileCountry(); ?><br>
@@ -28,6 +31,3 @@
 	Created: <?php profileCreated(); ?>
 </h2>
 
-andmete muutmine<br>
-parooli vahetus<br>
-kui unustad parooli
