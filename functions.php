@@ -94,11 +94,11 @@
 		$database = "if16_georg";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 		
-		$stmt = $mysqli->prepare("INSERT INTO sneakers(contactemail, description, price) VALUES(?, ?, ?)");
+		$stmt = $mysqli->prepare("INSERT INTO sneakers(user, contactemail, description, price) VALUES(?, ?, ?, ?)");
 	
 		echo $mysqli->error;
 		
-		$stmt->bind_param("sss", $contactemail, $description, $price);
+		$stmt->bind_param("ssss", $_SESSION["userEmail"], $contactemail, $description, $price);
 		
 		if($stmt->execute()) {
 			
@@ -124,6 +124,37 @@
 			FROM sneakers
 		");
 		
+		$stmt->bind_result($contactemail, $description, $price);
+		$stmt->execute();
+		
+		$result=array();
+		
+		while($stmt->fetch()) {
+			
+			$sneaker= new stdclass();
+			
+			$sneaker->contactemail=$contactemail;
+			$sneaker->description=$description;
+			$sneaker->price=$price;
+			
+			array_push($result, $sneaker);
+		}
+		
+		$stmt->close();
+		$mysqli->close();
+		
+		return $result;
+	}
+	
+	function getallusersneakers() {
+		
+		$database = "if16_georg";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+		
+		$stmt=$mysqli->prepare("
+			SELECT contactemail, description, price FROM sneakers WHERE user=?");
+		
+		$stmt->bind_param("s", $_SESSION["userEmail"]);
 		$stmt->bind_result($contactemail, $description, $price);
 		$stmt->execute();
 		

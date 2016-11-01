@@ -56,7 +56,7 @@
 		<input name="price" type="integer" placeholder="ex. 490"><br><br>
 		
 		<label>Contact E-Mail</label><br>
-		<input name="contactemail" type="text" placeholder="contact@me.com">
+		<input name="contactemail" type="text" value="<?=$_SESSION["userEmail"];?>">
 		
 		<br><br>
 		<input type="submit" value="Save & Post">
@@ -82,6 +82,7 @@
 			$html .= "<td>".$c->contactemail."</td>";
 			$html .= "<td>".$c->description."</td>";
 			$html .= "<td>".$c->price."</td>";
+			//$html .= "<td><a href='edit.php?contactemail=".$c->contactemail."'>edit.php</a></td>";
 		$html .= "</tr>";
 		
 	}

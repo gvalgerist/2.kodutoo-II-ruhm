@@ -142,19 +142,19 @@
 		$signupAgeError== ""
 		) {
 		
-		echo "Salvestan... <br>";
+		//echo "Salvestan... <br>";
 		
-		echo "email: ".$signupemail."<br>";
-		echo "password: ".$_POST["signuppassword"]."<br>";
-		echo "gender: ".$signupGender."<br>";
-		echo "age: ".$signupAge."<br>";
-		echo "country: ".$signupCountry."<br>";
-		echo "city: ".$signupCity."<br>";
-		echo "shoesize: ".$signupShoesize."<br>";
+		//echo "email: ".$signupemail."<br>";
+		//echo "password: ".$_POST["signuppassword"]."<br>";
+		//echo "gender: ".$signupGender."<br>";
+		//echo "age: ".$signupAge."<br>";
+		//echo "country: ".$signupCountry."<br>";
+		//echo "city: ".$signupCity."<br>";
+		//echo "shoesize: ".$signupShoesize."<br>";
 		
 		$password = hash("sha512", $_POST["signuppassword"]);
 		
-		echo "password hashed: ".$password."<br>";
+		//echo "password hashed: ".$password."<br>";
 		
 		//echo $serverUsername;
 		
